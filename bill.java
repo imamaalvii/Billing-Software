@@ -1,16 +1,12 @@
 import java.util.Scanner; 
  
-  double discount = 0; 
-        if (total > 50) { 
-            discount = total * 0.10; 
+System.out.print("Enter coupon code (or NONE): "); 
+        String coupon = input.next(); 
+ 
+        if (coupon.equalsIgnoreCase("SAVE5")) { 
+            // Coupon discount cannot exceed the remaining bill. 
+            couponDiscount = Math.min(5, total - discount); 
+            System.out.println("Coupon applied successfully!"); 
+        } else if (!coupon.equalsIgnoreCase("NONE")) { 
+            System.out.println("Invalid coupon code."); 
         } 
- 
-        double finalAmount = total - discount; 
- 
-        System.out.printf("Total bill: %.3f OMR%n", total); 
-        System.out.printf("Discount: %.3f OMR%n", discount); 
-        System.out.printf("Amount to pay: %.3f OMR%n", finalAmount); 
- 
-        input.close(); 
-    } 
-}
